@@ -64,6 +64,41 @@ node_modules/
 
 # dotenv environment variables file
 .env
+.env.local
+.env.*.local
 
 # dataconnect generated files
 .dataconnect
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+.DS_Store
+
+# System files
+Thumbs.db
+desktop.ini
+
+# Temporary files and directories
+tmp/
+temp/
+.cache/
+*.cache
+
+# Firebase hosting cache and previews
+firebase-previews/
+hosting-cache/
+
+# Output of build tools
+dist/
+build/
+out/
+
+# Test files and outputs
+*.test.js
+*.test.ts
+jest/
+__tests__/
