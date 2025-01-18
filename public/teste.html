@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header Flamengo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+          --bg-color: #080808;
+          --second-bg-color: #131313;
+          --text-color: white;
+          --main-color: #ff3131;
+        } 
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #800000; /* Vermelho Flamengo */
+        }
+
+        .top-bar {
+            background-color: black; /* Amarelo-dourado */
+            color: var(--main-color);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .top-bar .logo img {
+            height: 75px;
+            margin-right: 10px;
+        }
+
+        .top-bar .logo h1 {
+            font-size: 24px;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+        }
+
+        .search input {
+            padding: 5px;
+            border: none;
+            border-radius: 4px;
+        }
+
+        .search button {
+            margin-left: 5px;
+            padding: 5px 10px;
+            border: none;
+            background-color: black;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search button:hover {
+            background-color: var(--main-color); /* Laranja */
+        }
+
+        .navbar {
+            background-color: var(--main-color);
+            color: white;
+            padding: 10px 20px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: black; /* Amarelo-dourado */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="logo">
+                <img src="static/logo.png" alt="Logo Flamengo">
+            </div>
+            <!-- <div class="search">
+                <input type="text" placeholder="Buscar...">
+                <button>Buscar</button>
+            </div> -->
+        </div>
+        <div class="navbar">
+            <nav>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Esportes</a></li>
+                    <li><a href="#">Politica</a></li>
+                    <li><a href="#">Policia</a></li>
+                    <li><a href="#">Diversos</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</body>
+</html>
