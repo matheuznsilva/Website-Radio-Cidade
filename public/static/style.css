@@ -121,6 +121,63 @@ nav ul a.active {
     display: none; /* Apenas para mobile */
 }
 
+/* ----------- search ----------- */
+
+/* Estilo do ícone de busca */
+.search-icon {
+    position: relative;
+    cursor: pointer;
+    color: var(--main-color);
+    font-size: 2.5rem;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .search-icon:hover {
+    color: white;
+  }
+  
+  /* Estilo do balão de busca */
+  .search-box {
+    display: none; /* Oculto por padrão */
+    position: absolute;
+    top: 70px; /* Distância abaixo do ícone */
+    right: 200px; /* Alinha à direita do ícone */
+    background-color: white;
+    padding: 20px;
+    border-radius: 2px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    width: 300px;
+  }
+  
+  .search-box.active {
+    display: block;
+  }
+  
+  .search-box input {
+    width: 100%; /* Considera o espaço do botão */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 5px;
+  }
+  
+  .search-box button {
+    align-items: center;
+    padding: 8px 112px;
+    border: none;
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .search-box button:hover {
+    background-color: darken(var(--main-color), 10%);
+  }
+  
+
 
 section{
     min-height: 100vh;
