@@ -12,6 +12,41 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// ------------- App button -------------
+
+/* document.addEventListener('DOMContentLoaded', () => {
+  const menuButton = document.querySelector('.menu-button');
+  const dropdown = document.querySelector('.dropdown');
+
+  menuButton.addEventListener('click', () => {
+    // Alterna a visibilidade do menu
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+  });
+
+  // Fecha o menu se clicar fora dele
+  document.addEventListener('click', (event) => {
+    if (!menuButton.contains(event.target) && !dropdown.contains(event.target)) {
+      dropdown.style.display = 'none';
+    }
+  });
+}); */
+
+document.addEventListener("DOMContentLoaded", () => {
+  const appMenu = document.querySelector(".app-menu");
+  const dropdown = document.querySelector(".dropdown");
+
+  // Mostra o dropdown ao passar o mouse no menu
+  appMenu.addEventListener("mouseenter", () => {
+    dropdown.style.display = "block";
+  });
+
+  // Oculta o dropdown ao sair do menu
+  appMenu.addEventListener("mouseleave", () => {
+    dropdown.style.display = "none";
+  });
+});
+
+
 // ------------- Back to top -------------
 
 window.addEventListener('scroll', function() {
@@ -31,3 +66,7 @@ document.getElementById('backToTop').addEventListener('click', function(e) {
       behavior: 'smooth'
   });
 });
+
+// ------------- google ads -------------
+
+(adsbygoogle = window.adsbygoogle || []).push({});
