@@ -438,6 +438,62 @@ audio {
     margin-bottom: 3.5rem; /* Espaço entre o texto e o botão */
 }
 
+/*------------- Programation Page ------------- */
+
+.programming{
+    background: var(--bg-color);
+}
+.programming-box{
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.programming .heading{
+    margin-top: 10rem;
+    margin-bottom: 7.5rem;
+}
+
+.programming-item{
+    min-height: 650px;
+    max-width: 450px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 3px solid rgba(238, 238, 238, 0.2);
+    border-radius: 2rem;
+    margin: 0 2rem;
+    padding: 30px 60px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    text-align: left;
+    gap: 1.5rem;
+    color: white;
+    transition: 0.4s ease-in-out;
+}
+.programming-item:hover{
+    border: 3px solid var(--main-color);
+    transform: translateY(-10px)scale(1.03);
+    box-shadow: 0 0 50px var(--main-color);
+}
+.programming-item h2{
+    font-size: 3.5rem;
+    margin-bottom: 3.5rem;
+}
+.programming-item p{
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 3rem;
+}
+
+
 /* ------------- Responsividade -------------*/
 
 @media(max-width:1285px){
@@ -475,7 +531,7 @@ audio {
     .projects{
         padding-bottom: 7rem;
     }
-    .testimonials .wrapper{
+    .programming .wrapper{
         grid-template-columns: repeat(1,1fr);
     }
     .contact form{
@@ -587,14 +643,14 @@ audio {
     .education h2, 
     .skills h2, 
     .projects h2, 
-    .testimonials h2, 
+    .programming h2, 
     .contact h2 {
         font-size: 5rem; /* Ajusta o tamanho do título da seção de projetos */
     }
     .projects-container {
         grid-template-columns: 1fr; /* Uma coluna para os projetos */
     }
-    .testimonials .wrapper {
+    .programming .wrapper {
         grid-template-columns: 1fr; /* Uma coluna para os depoimentos */
     }
 }
