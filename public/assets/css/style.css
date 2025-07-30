@@ -1,0 +1,937 @@
+/* ======== FONTS ======== */
+
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap);
+@import url(https://necolas.github.io/normalize.css/8.0.1/normalize.css);
+
+/* ======== VARIABLES ======== */
+
+:root {
+    /* ======== colors ======== */
+    --bg-color: #080808;
+    --second-bg-color: #131313;
+    --text-color: white;
+    --main-color: #ff3131;
+
+    /* ======== font and typography ======== */
+    --heading-font: 'Poppins', sans-serif;
+}
+
+/* ======== BASE ======== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: var(--heading-font);
+}
+
+html {
+    font-size: 60%;
+    overflow-x: hidden;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* ======== HEADER & NAVBAR ======== */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    /* Aumentei o z-index para garantir que fique acima de tudo */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 12%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.banner {
+    width: 468px;
+    height: 60px;
+    border-radius: 0px;
+    margin: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner img {
+    max-width: 100%;
+    height: auto;
+}
+
+.header .social {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+}
+
+.header .social a {
+    font-size: 2.5rem;
+    color: var(--main-color);
+    transition: color 0.3s ease-in-out;
+}
+
+.header .social a:hover {
+    color: white;
+}
+
+.navbar {
+    width: 100%;
+    background-color: var(--main-color);
+    padding: 1rem 12%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    /* Adicionado transição para suavizar a abertura/fechamento */
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    /* Permite que os itens quebrem linha em telas menores */
+}
+
+nav ul a {
+    margin: 0;
+    padding: 0 15px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.8rem;
+    font-weight: 500;
+    transition: color 0.3s;
+    border-right: 1px solid black;
+    white-space: nowrap;
+    /* Impede que o texto do link quebre linha */
+}
+
+nav ul a:last-child {
+    border-right: none;
+}
+
+nav ul a:hover,
+nav ul a.active {
+    color: var(--bg-color);
+}
+
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--main-color);
+    display: none;
+    /* Escondido por padrão, será exibido via media query */
+    cursor: pointer;
+    position: absolute;
+    /* Posição absoluta para o ícone */
+    right: 3%;
+    /* Ajusta a posição à direita */
+    top: 50%;
+    /* Centraliza verticalmente */
+    transform: translateY(-50%);
+    /* Centraliza verticalmente */
+    z-index: 1001;
+    /* Acima da navbar mobile */
+}
+
+/*-------------- Menu de Aplicativos (Contato/App) ---------------*/
+
+.app-menu {
+    position: relative;
+    display: inline-block;
+    height: 1.8rem;
+    /* Para que o botão tenha a mesma altura dos links a */
+    display: flex;
+    /* Para centralizar o texto verticalmente no botão */
+    align-items: center;
+    /* Para centralizar o texto verticalmente no botão */
+}
+
+.menu-button {
+    background-color: var(--main-color);
+    color: white;
+    padding: 0 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    font-weight: 500;
+    height: 120%;
+    /* Ocupa a altura do app-menu */
+    display: flex;
+    /* Para centralizar o ícone */
+    align-items: center;
+    /* Para centralizar o ícone */
+    justify-content: center;
+    /* Para centralizar o ícone */
+}
+
+.menu-button i {
+    margin-left: 5px;
+    /* Espaçamento entre texto e ícone */
+    font-size: 1.5rem;
+    /* Tamanho do ícone de seta */
+}
+
+.contato .menu-button {
+    border-right: 1px solid black;
+    /* Linha fina entre os itens para o botão de contato */
+}
+
+.menu-button:hover {
+    background-color: #d12c2c;
+    color: var(--bg-color);
+
+    /* Exemplo de cor levemente mais escura */
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 120px;
+    /* Aumentei um pouco para melhor legibilidade */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    /* Z-index para dropdowns */
+    top: 170%;
+    /* Posiciona logo abaixo do botão */
+    left: 0;
+    padding: 5px 0;
+}
+
+.dropdown a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+    font-size: 1.6rem;
+    /* Ajuste do tamanho da fonte para dropdowns */
+    transition: background-color 0.3s;
+    border-right: none;
+    /* Remover borda lateral nos itens do dropdown */
+}
+
+.dropdown a:hover {
+    background-color: #f0f0f0;
+}
+
+/* ----------- search ----------- */
+
+/* Estilo do ícone de busca */
+.search-icon {
+    position: relative;
+    cursor: pointer;
+    color: var(--main-color);
+    font-size: 2.5rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.search-icon:hover {
+    color: white;
+}
+
+/* Estilo do balão de busca */
+.search-box {
+    display: none;
+    /* Oculto por padrão */
+    position: absolute;
+    top: 70px;
+    /* Distância abaixo do ícone */
+    right: 12%;
+    /* Alinha à direita do ícone */
+    background-color: white;
+    padding: 20px;
+    border-radius: 2px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    width: 230px;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.search-box.active {
+    display: block;
+    display: flex;
+}
+
+.search-box input {
+    width: 100%;
+    /* Considera o espaço do botão */
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 5px;
+    font-size: 1.6rem;
+}
+
+.search-box button {
+    align-items: center;
+    padding: 10px 36%;
+    margin-top: 5px;
+    border: none;
+    background-color: var(--main-color);
+    color: white;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1.6rem;
+}
+
+.search-box button:hover {
+    background-color: black;
+}
+
+
+/* ----------- section ----------- */
+
+section {
+    min-height: 80vh;
+
+    padding: 10rem 12% 10rem;
+    padding-top: calc(10rem + 80px); /* Ajuste com base na altura do seu header */
+}
+
+span {
+    color: var(--main-color);
+}
+
+.logo span {
+    color: var(--main-color);
+}
+
+.heading {
+    font-size: 8rem;
+    text-align: center;
+    margin: 5rem 0;
+}
+
+/*------------- Player Radio --------------- */
+
+#radio-player {
+    width: 80%;
+    max-width: 50%;
+    padding: 30px;
+    background-color: var(--second-bg-color);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 180px auto;
+    text-align: center;
+}
+
+#radio-player h2 {
+    color: var(--text-color);
+    margin-bottom: 15px;
+    padding-bottom: 50px;
+}
+
+audio {
+    width: 80%;
+    outline: none;
+}
+
+/* Estilo para a barra de áudio */
+audio::-webkit-media-controls-panel {
+  background-color: var(--main-color); /* Cor da barra de controle */
+  color: black;
+}
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-volume-slider,
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+    color: black; /* Cor dos controles */
+}
+
+.header-player {
+    background-color: #ffffff;
+    padding: 5px 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-player audio {
+    width: 300px;
+    outline: none;
+}
+
+.banner {
+    width: 468px;
+    height: 60px;
+    border-radius: 0px;
+    margin: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*------------- Colaborators Styles ------------- */
+section.collaborators {
+    background: var(--bg-color);
+}
+.collaborators img {
+    width: 10%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/*------------- Footer Styles ------------- */
+
+.footer{
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 40px 0;
+    background-color: var(--bg-color);
+}
+.footer .social{
+    text-align: center;
+    padding-bottom: 25px;
+    color: var(--main-color);
+}
+.footer .social a{
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    font-size: 3rem;
+    border-radius: 50%;
+    color: var(--main-color);
+    line-height: 5rem;
+    margin: 0 1rem;
+    transition: 0.3s ease-in-out;
+}
+.footer .social a:hover{
+    color: white;
+    transform: scale(1.3);
+}
+.footer ul{
+    margin-top: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-align: center;
+}
+.footer ul li a{
+    color: white;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s ease-in-out;
+}
+.footer ul li a:hover{
+    border-bottom: 3px solid var(--main-color);
+}
+.footer ul li{
+    display: inline-block;
+    padding: 0 15px;
+}
+.footer .copyright{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+}
+
+/*------------- Scroll bar -------------*/
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--main-color);
+}
+::-webkit-scrollbar-track{
+    background-color: var(--bg-color);
+}
+
+/*------------- Back to Top Button ------------- */
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: rgba(255, 255, 255, 0); /* Transparente */
+    color: var(--main-color);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 50px;
+    text-decoration: none;
+    display: none; /* Inicialmente escondido */
+    transition: background-color 0.3s;
+    z-index: 999; /* Garante que o botão esteja acima de outros elementos */
+}
+
+.back-to-top:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Altera a opacidade ao passar o mouse */
+}
+
+/*------------- Page 404 Styles ------------- */
+
+.page-404 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15rem;
+    height: 100vh;
+    text-align: center;
+}
+.page-404-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+}
+.page-404-content h3{
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    font-size: 3.5rem;
+}
+.page-404-content h1{
+    font-size: 10rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    line-height: 1;
+}
+.page-404-content p{
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.8;
+    max-width: 1000px;
+}
+.page-404-content p:last-of-type {
+    margin-bottom: 3.5rem;
+}
+
+/*------------- Programation Page ------------- */
+
+.programming{
+    background: var(--bg-color);
+}
+.programming-box{
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.programming .heading{
+    margin-top: 10rem;
+    margin-bottom: 7.5rem;
+}
+
+.programming-item{
+    min-height: 650px;
+    max-width: 450px;
+    background: rgba(0, 0, 0, 0.7);
+    border: 3px solid rgba(238, 238, 238, 0.2);
+    border-radius: 2rem;
+    margin: 0 2rem;
+    padding: 30px 60px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    text-align: left;
+    gap: 1.5rem;
+    color: white;
+    transition: 0.4s ease-in-out;
+}
+.programming-item:hover{
+    border: 3px solid var(--main-color);
+    transform: translateY(-10px)scale(1.03);
+    box-shadow: 0 0 50px var(--main-color);
+}
+.programming-item h2{
+    font-size: 3rem; /* Ajustado o tamanho da fonte */
+    margin-bottom: 2rem;
+}
+.programming-item p{
+    font-size: 1.8rem; /* Ajustado o tamanho da fonte */
+    margin-bottom: 1rem;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 3rem;
+}
+
+
+/* ------------- Responsividade -------------*/
+
+/* ======== MEDIA QUERIES PARA RESPONSIVIDADE ======== */
+
+/* Para telas muito grandes (desktops maiores que 1600px) */
+@media (max-width: 1600px) {
+    html {
+        font-size: 55%; /* Reduz a fonte base para elementos maiores */
+    }
+    .top-bar {
+        padding: 1rem 10%;
+    }
+    .navbar {
+        padding: 1rem 10%;
+    }
+    section {
+        min-width: 40vh;
+        padding: 10rem 10% 10rem;
+    }
+}
+
+/* Para desktops (largura máxima de 1200px) */
+@media (max-width: 1200px) {
+    html {
+        font-size: 50%; /* Reduz ainda mais a fonte base */
+    }
+    .top-bar {
+        padding: 1rem 8%;
+    }
+    .navbar {
+        padding: 1rem 8%;
+    }
+    section {
+        min-width: 40vh;
+        padding: 10rem 8% 10rem;
+    }
+    .header .social {
+        gap: 1.5rem; /* Ajusta o espaçamento dos ícones sociais */
+    }
+    .banner {
+        width: 380px; /* Reduz a largura do banner */
+        height: 50px; /* Reduz a altura do banner */
+        margin: 0 10px; /* Ajusta a margem do banner */
+    }
+    .navbar ul a {
+        padding: 0 10px; /* Reduz o padding dos itens da navbar */
+        font-size: 1.6rem; /* Ajusta o tamanho da fonte da navbar */
+    }
+    .programming-item {
+        min-height: 550px; /* Ajusta a altura mínima dos itens de programação */
+        max-width: 380px; /* Ajusta a largura máxima dos itens de programação */
+        padding: 20px 40px; /* Ajusta o padding dos itens de programação */
+    }
+}
+
+/* Para tablets (largura máxima de 991px) */
+@media (max-width: 991px) {
+    .header {
+        padding: 0; /* Remove o padding do header */
+    }
+    .top-bar {
+        padding: 3rem 5%; /* Ajusta o padding da top-bar */
+        flex-direction: row; /* Coloca os itens em coluna */
+        justify-content: center; /* Centraliza os itens verticalmente */
+        align-items: center; /* Centraliza os itens horizontalmente */ 
+        flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
+        position: relative; /* Permite que a navbar seja posicionada abaixo do header */
+        z-index: 1000; /* Garante que a top-bar fique acima de outros*/
+    }
+    .navbar {
+        padding: 0; /* Remove o padding da navbar (será controlado pela classe active) */
+    }
+    section {
+        min-width: 70vh; 
+        padding: 7rem 5% 7rem; /* Ajusta o padding das seções */
+    }
+    .banner {
+        display: none; /* Oculta o banner em telas menores para otimizar espaço */
+    }
+    .header .social {
+        display: flex; /* Garante que os ícones sociais sejam exibidos */
+        order: -1; /* Move os ícones sociais para o início da top-bar */
+        margin-right: auto; /* Alinha os ícones sociais à esquerda */
+        justify-content: flex-start; /* Alinha os ícones sociais à esquerda */
+        width: auto; /* Ocupa a largura total */
+        gap: 1rem; /* Ajusta o espaçamento dos ícones sociais */
+        padding-left: 0; /* Remove o padding à esquerda */
+    }
+    .logo {
+        margin: 0 auto; /* Centraliza o logo */
+        z-index: 1002; /* Garante que o logo fique acima da navbar */
+        position: relative ; /* Permite que o logo seja posicionado corretamente */
+    }
+    /* Navbar para Mobile (Menu Hambúrguer) */
+    #menu-icon {
+        display: block; /* Mostra o ícone do menu hambúrguer */
+        position: absolute;
+        right: 5%;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1001;
+        background-color: transparent; /* Garante que não tenha fundo */
+        border: none; /* Remove qualquer borda padrão de botão */
+        font-size: 3.6rem;
+        color: var(--main-color);
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%; /* Posiciona abaixo do header */
+        left: 0;
+        width: 100%;
+        background: var(--main-color); /* Fundo da navbar mobile */
+        padding: 1rem 5%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: none; /* Escondido por padrão, será mostrado com JS */
+        flex-direction: column; /* Itens em coluna */
+        transition: all 0.3s ease;
+        z-index: 999; /* Garante que fique abaixo do menu-icon */
+    }
+
+    .navbar.active {
+        display: flex; /* Mostra a navbar quando a classe 'active' é adicionada */
+    }
+
+    .navbar ul {
+        flex-direction: column; /* Itens da lista em coluna */
+        text-align: center; /* Centraliza o texto */
+    }
+
+    .navbar ul a {
+        display: block; /* Cada link ocupa a largura total */
+        margin: 1rem 0; /* Espaçamento entre os links */
+        padding: 1rem; /* Padding para melhor área de clique */
+        font-size: 2rem; /* Tamanho da fonte maior para mobile */
+        border-right: none; /* Remove a borda lateral */
+        border-bottom: 1px solid var(--bg-color); /* Adiciona uma borda inferior */
+        white-space: normal; /* Permite que o texto do link quebre linha */
+    }
+
+    .navbar ul a:last-child {
+        border-bottom: none; /* Remove a borda do último item */
+    }
+
+    /* Ajustes para os menus dropdown em mobile */
+    .app-menu {
+        display: flex; /* Use flexbox */
+        flex-direction: column; /* Empilha o botão e o dropdown */
+        width: 100%;
+        margin: 1rem 0;
+        text-align: center;
+        align-items: center; /* Centraliza o botão e o dropdown */
+    }
+
+    .menu-button {
+        width: 100%; /* Botão ocupa largura total */
+        height: auto; /* Altura automática */
+        padding: 1rem; /* Padding maior */
+        font-size: 2rem;
+    }
+
+    .contato .menu-button {
+        border-right: none;
+    }
+
+    .dropdown {
+        display: none; /* Começa escondido, JS o mostra */
+        position: static; /* <<--- ISSO FAZ ELE EMPURRAR OS OUTROS ELEMENTOS! */
+        width: 100%; /* Largura total */
+        min-width: unset; /* Remove min-width */
+        top: unset; /* Remove top fixo */
+        left: unset; /* Remove left fixo */
+        background-color: #f8f8f8; /* Cor de fundo mais clara para os itens */
+        box-shadow: none; /* Remove sombra */
+        padding: 0;
+        margin-top: 5px; /* Pequeno espaçamento superior */
+    }
+
+    .dropdown a {
+        color: var(--bg-color); /* Cor do texto dos itens do dropdown */
+        padding: 1rem 20px; /* Padding para os itens do dropdown */
+        font-size: 1.8rem;
+    }
+
+    .dropdown a:hover {
+        background-color: var(--main-color); /* Cor de hover para itens do dropdown */
+        color: white; /* Cor do texto de hover */
+    }
+
+    .search-box {
+        top: 60px; /* Ajusta a posição do search-box */
+        right: 5%; /* Alinha à direita */
+        width: 90%; /* Largura maior para mobile */
+    }
+
+    .search-box input {
+        padding: 10px; /* Ajusta o padding do input de busca */
+        font-size: 1.4rem;
+    }
+
+    .search-box button {
+        padding: 10px 0; /* Ajusta o padding do botão de busca */
+        font-size: 1.4rem;
+        width: 100%; /* Ocupa a largura total */
+    }
+
+    .heading {
+        font-size: 6rem; /* Reduz o tamanho do título principal */
+        margin: 3rem 0;
+    }
+
+    .wrapper {
+        grid-template-columns: repeat(2,1fr); /* 2 colunas para programação em tablet */
+    }
+
+    .programming-item {
+        min-height: 450px;
+        max-width: unset; /* Permite que ocupe a largura disponível da coluna */
+        margin: 1rem;
+        padding: 20px 30px;
+    }
+}
+
+/* Para Mobile (largura máxima de 768px) */
+@media (max-width: 768px) {
+    html {
+        font-size: 45%; /* Reduz a fonte base para mobile */
+    }
+    .top-bar {
+        padding: 1rem 3%;
+    }
+    section {
+        min-width: 40vh;
+        padding: 5rem 3% 5rem;
+    }
+
+    .logo {
+        max-width: 120px; /* Reduz o tamanho do logo */
+    }
+
+    .heading {
+        font-size: 5rem; /* Reduz o tamanho do título principal */
+    }
+
+    #radio-player {
+        width: 90%; /* Aumenta a largura do player de rádio */
+        max-width: unset;
+        padding: 20px;
+        margin: 120px auto 50px;
+    }
+
+    #radio-player h2 {
+        padding-bottom: 20px;
+        font-size: 2.5rem;
+    }
+
+    audio {
+        width: 100%;
+    }
+
+    .header-player audio {
+        width: 100%; /* Ajusta o player do header para 100% de largura */
+    }
+
+    .wrapper {
+        grid-template-columns: 1fr; /* Apenas 1 coluna para programação em mobile */
+    }
+
+    .programming-item {
+        min-height: 400px;
+        max-width: 90%; /* Ajusta a largura máxima para mobile */
+        margin: 1rem auto; /* Centraliza os itens */
+        padding: 20px;
+        text-align: center; /* Centraliza o texto */
+        align-items: center; /* Centraliza os itens */
+        justify-content: center; /* Centraliza verticalmente */
+    }
+    .programming-item h2 {
+        font-size: 2.5rem;
+    }
+    .programming-item p {
+        font-size: 1.6rem;
+    }
+
+    .footer ul li {
+        padding: 0 8px; /* Reduz o padding dos itens do footer */
+        font-size: 1.6rem;
+    }
+    .footer .social a {
+        width: 4rem; /* Reduz o tamanho dos ícones sociais do footer */
+        height: 4rem;
+        font-size: 2.5rem;
+        line-height: 4rem;
+        margin: 0 0.5rem;
+    }
+
+    .page-404 {
+        flex-direction: column; /* Coloca os elementos da página 404 em coluna */
+        gap: 5rem;
+        padding: 5rem 3%;
+    }
+    .page-404-content h1 {
+        font-size: 8rem;
+    }
+    .page-404-content h3 {
+        font-size: 3rem;
+    }
+    .page-404-content p {
+        font-size: 1.4rem;
+    }
+}
+
+/* Para Mobile muito pequeno (largura máxima de 450px) */
+@media (max-width: 450px) {
+    html {
+        font-size: 40%; /* Reduz ainda mais a fonte base */
+    }
+    .top-bar {
+        padding: 1rem 2%;
+    }
+    section {
+        min-width: 40vh;
+        padding: 4rem 2% 4rem;
+    }
+    .search-box {
+        right: 2%; /* Ajusta a posição do search-box */
+    }
+    .search-box button {
+        padding: 8px 0; /* Ajusta o padding do botão de busca */
+    }
+
+    .footer ul li {
+        display: block; /* Cada item do footer em uma nova linha */
+        padding: 5px 0;
+    }
+}

@@ -1,27 +1,76 @@
-# WEBSITE RADIO CIDADE WEB
+# WEBSITE RÁDIO CIDADE WEB
 
-This repository has Radio Cidade Web website
+Este repositório contém o código-fonte do website da Rádio Cidade Web. O objetivo é criar uma presença online moderna e funcional para a rádio.
 
-## Technologies used
+## Visão Geral do Projeto
+
+O website da Rádio Cidade Web está sendo desenvolvido para fornecer uma plataforma online para a rádio, permitindo que os usuários acessem informações e interajam com o conteúdo.
+
+**Status Atual do Projeto: Funcional (em desenvolvimento)**
+
+O projeto encontra-se atualmente em sua fase de design básico e está funcional, mas requer a adição de funcionalidades e refinamentos.
+
+### Conquistas Atuais:
+* **Página Inicial (Home):** A página principal do site está completa, servindo como ponto de partida para a navegação.
+
+### Próximos Passos:
+* **Ajustes de Layout:** Otimização e refinamento dos detalhes visuais do layout para uma melhor experiência do usuário.
+* **Novas Páginas e Funcionalidades:** Adição de novas seções ao site e implementação de recursos interativos ou informativos.
+
+## Estrutura do Projeto
+
+A estrutura de pastas do projeto foi organizada para facilitar a manutenção e escalabilidade. Embora este projeto seja primariamente frontend, podemos adaptá-lo para futuras expansões.
+
+```
+.
+├── public/                       # Contém todos os arquivos estáticos do frontend
+│   ├── static/                   # Pasta de estilo CSS e Script Js
+│   │   └── style.css
+│   │   └── script.js
+│   │   └── ...
+│   └── index.html                # Página principal
+│   └── 404.html                  # Página erro
+│   └── programacao.html          # Página de programação da radio
+└── README.md                     # Este arquivo de documentação
+
+```
+
+## Tecnologias Utilizadas
+
+Este projeto é construído com as seguintes tecnologias frontend:
 
 <div> 
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&amp;logo=html5&amp;logoColor=white" alt="html"> 
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&amp;logo=css3&amp;logoColor=white" alt="css"> 
+  <img src="https://img.shields.io/badge/CSS3-663399?style=for-the-badge&amp;logo=css3&amp;logoColor=white" alt="css"> 
   <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&amp;logo=javascript&amp;logoColor=F7DF1E" alt="javascript"> 
 </div>
 
-## Project Status
+## Como Visualizar (Localmente)
 
-**Project Status: Functional**
+Para visualizar o projeto localmente, siga os passos abaixo:
 
-Although the project is currently in its basic design stage, it requires some additional functionality.
+### 1. Clonar o Repositório
+```bash
+git clone https://github.com/matheuznsilva/Website-Radio-Cidade
+cd radio_cidade_web 
+```
+### 2. Abrir o Arquivo no Navegador
+Como este é um projeto puramente frontend (HTML, CSS, JavaScript), você pode simplesmente abrir o arquivo index.html diretamente no seu navegador.
 
-**Current achievements:**
+Navegue até a pasta raiz do projeto.
 
-- Home page completed
+Encontre o arquivo index.html.
 
-**Next steps:**
+Clique duas vezes no index.html ou arraste-o para a janela do seu navegador.
 
-- Adjust layout details.
+Alternativamente, você pode usar uma extensão de "Live Server" em seu editor de código (como o VS Code) para ter um servidor local simples e recarregamento automático.
 
-- Add new pages and features.
+### Contribuição
+Contribuições são bem-vindas! Se você tiver sugestões, ideias para novas funcionalidades ou melhorias de design, por favor, sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+### Contato
+Matheus Nascimento Silva
+
+LinkedIn: https://www.linkedin.com/in/matheuznsilva/
+
+GitHub: https://github.com/matheuznsilva
