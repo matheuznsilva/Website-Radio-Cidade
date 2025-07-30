@@ -23,15 +23,27 @@ A estrutura de pastas do projeto foi organizada para facilitar a manutenção e 
 
 ```
 .
-├── public/                       # Contém todos os arquivos estáticos do frontend
-│   ├── static/                   # Pasta de estilo CSS e Script Js
-│   │   └── style.css
-│   │   └── script.js
-│   │   └── ...
-│   └── index.html                # Página principal
-│   └── 404.html                  # Página erro
-│   └── programacao.html          # Página de programação da radio
-└── README.md                     # Este arquivo de documentação
+├── public
+│   ├── assets
+│   │   ├── css
+│   │   │   └── style.css
+│   │   ├── img
+│   │   │   ├── app-radiosnet-468x60-a.png
+│   │   │   ├── icon.jpg
+│   │   │   ├── Logo 400x400.png
+│   │   │   ├── logo.png
+│   │   │   └── play.png
+│   │   └── js
+│   │       └── scripts.js
+│   ├── components
+│   │   ├── footer.html
+│   │   └── header.html
+│   └── views
+│       ├── 404.html
+│       ├── about.html
+│       ├── index.html
+│       └── programacao.html
+└── README.md
 
 ```
 
