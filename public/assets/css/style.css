@@ -1,23 +1,26 @@
-/* ======== FONTS ======== */
+/* ====================================
+          Variáveis e Importações
+   ==================================== */
 
+/* ---- Importação de Fontes ---- */
 @import url(https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap);
 @import url(https://necolas.github.io/normalize.css/8.0.1/normalize.css);
 
-/* ======== VARIABLES ======== */
-
+/* ---- Variáveis CSS ---- */
 :root {
-    /* ======== colors ======== */
     --bg-color: #080808;
     --second-bg-color: #131313;
     --text-color: white;
-    --main-color: #ff3131;
+    --main-color: rgb(255, 49, 49);
 
-    /* ======== font and typography ======== */
     --heading-font: 'Poppins', sans-serif;
+    --mono-font: 'JetBrains Mono', monospace;
 }
 
-/* ======== BASE ======== */
+/* ====================================
+          Configurações de Base
+   ==================================== */
 
 * {
     margin: 0;
@@ -40,7 +43,26 @@ body {
     color: var(--text-color);
 }
 
-/* ======== HEADER & NAVBAR ======== */
+section {
+    min-height: 80vh;
+    padding: 10rem 12% 10rem;
+    padding-top: calc(10rem + 80px); /* Ajuste para o header fixo */
+}
+
+.heading {
+    font-size: 8rem;
+    text-align: center;
+    margin: 5rem 0;
+}
+
+span {
+    color: var(--main-color);
+}
+
+
+/* ====================================
+            Header e Navegação
+   ==================================== */
 
 .header {
     position: fixed;
@@ -50,12 +72,10 @@ body {
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
     z-index: 1000;
-    /* Aumentei o z-index para garantir que fique acima de tudo */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .top-bar {
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -74,10 +94,13 @@ body {
     transform: scale(1.1);
 }
 
+.logo span {
+    color: var(--main-color);
+}
+
 .banner {
     width: 468px;
     height: 60px;
-    border-radius: 0px;
     margin: 0 20px;
     display: flex;
     justify-content: center;
@@ -112,143 +135,107 @@ body {
     padding: 1rem 12%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    /* Adicionado transição para suavizar a abertura/fechamento */
 }
 
-nav ul {
+.navbar nav ul {
     display: flex;
     justify-content: center;
     list-style: none;
     padding: 0;
     margin: 0;
     flex-wrap: wrap;
-    /* Permite que os itens quebrem linha em telas menores */
 }
 
-nav ul a {
-    margin: 0;
+.navbar nav ul a {
     padding: 0 15px;
-    text-decoration: none;
     color: var(--text-color);
     font-size: 1.8rem;
     font-weight: 500;
     transition: color 0.3s;
     border-right: 1px solid black;
     white-space: nowrap;
-    /* Impede que o texto do link quebre linha */
 }
 
-nav ul a:last-child {
+.navbar nav ul a:last-child {
     border-right: none;
 }
 
-nav ul a:hover,
-nav ul a.active {
+.navbar nav ul a:hover,
+.navbar nav ul a.active {
     color: var(--bg-color);
 }
 
-#menu-icon {
-    font-size: 3.6rem;
-    color: var(--main-color);
-    display: none;
-    /* Escondido por padrão, será exibido via media query */
-    cursor: pointer;
-    position: absolute;
-    /* Posição absoluta para o ícone */
-    right: 3%;
-    /* Ajusta a posição à direita */
-    top: 50%;
-    /* Centraliza verticalmente */
-    transform: translateY(-50%);
-    /* Centraliza verticalmente */
-    z-index: 1001;
-    /* Acima da navbar mobile */
-}
-
-/*-------------- Menu de Aplicativos (Contato/App) ---------------*/
-
+/* ---- Menu de Aplicativos (Dropdown) ---- */
 .app-menu {
     position: relative;
     display: inline-block;
-    height: 1.8rem;
-    /* Para que o botão tenha a mesma altura dos links a */
-    display: flex;
-    /* Para centralizar o texto verticalmente no botão */
     align-items: center;
-    /* Para centralizar o texto verticalmente no botão */
+    height: 1.8rem;
 }
 
 .menu-button {
     background-color: var(--main-color);
     color: white;
     padding: 0 15px;
-    border: none;
     cursor: pointer;
     font-size: 1.8rem;
     font-weight: 500;
     height: 120%;
-    /* Ocupa a altura do app-menu */
     display: flex;
-    /* Para centralizar o ícone */
     align-items: center;
-    /* Para centralizar o ícone */
     justify-content: center;
-    /* Para centralizar o ícone */
 }
 
 .menu-button i {
     margin-left: 5px;
-    /* Espaçamento entre texto e ícone */
-    font-size: 1.5rem;
-    /* Tamanho do ícone de seta */
+    font-size: 3rem;
 }
 
 .contato .menu-button {
     border-right: 1px solid black;
-    /* Linha fina entre os itens para o botão de contato */
 }
 
 .menu-button:hover {
-    background-color: #d12c2c;
     color: var(--bg-color);
+}
 
-    /* Exemplo de cor levemente mais escura */
+.app-menu:hover .dropdown, 
+.contato:hover .dropdown {
+    display: block;
+}
+
+#menu-icon {
+    display: none;
 }
 
 .dropdown {
     display: none;
     position: absolute;
     background-color: white;
-    min-width: 120px;
-    /* Aumentei um pouco para melhor legibilidade */
+    min-width: 135px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 10;
-    /* Z-index para dropdowns */
     top: 170%;
-    /* Posiciona logo abaixo do botão */
     left: 0;
     padding: 5px 0;
 }
 
-.dropdown a {
+.app-menu .dropdown a,
+.contato .dropdown a {
     color: black;
-    text-decoration: none;
     display: block;
     padding: 10px 15px;
     font-size: 1.6rem;
-    /* Ajuste do tamanho da fonte para dropdowns */
     transition: background-color 0.3s;
     border-right: none;
-    /* Remover borda lateral nos itens do dropdown */
 }
 
-.dropdown a:hover {
+.app-menu .dropdown a:hover,
+.contato .dropdown a:hover {
     background-color: #f0f0f0;
 }
 
-/* ----------- search ----------- */
-
-/* Estilo do ícone de busca */
+/* ----------- Busca ----------- */
 .search-icon {
     position: relative;
     cursor: pointer;
@@ -261,15 +248,11 @@ nav ul a.active {
     color: white;
 }
 
-/* Estilo do balão de busca */
 .search-box {
     display: none;
-    /* Oculto por padrão */
     position: absolute;
     top: 70px;
-    /* Distância abaixo do ícone */
     right: 12%;
-    /* Alinha à direita do ícone */
     background-color: white;
     padding: 20px;
     border-radius: 2px;
@@ -281,32 +264,26 @@ nav ul a.active {
 }
 
 .search-box.active {
-    display: block;
     display: flex;
 }
 
 .search-box input {
     width: 100%;
-    /* Considera o espaço do botão */
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-right: 5px;
     font-size: 1.6rem;
 }
 
 .search-box button {
-    align-items: center;
     padding: 10px 36%;
     margin-top: 5px;
-    border: none;
     background-color: var(--main-color);
     color: white;
-    font-size: 12px;
+    font-size: 1.6rem;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    font-size: 1.6rem;
 }
 
 .search-box button:hover {
@@ -314,34 +291,14 @@ nav ul a.active {
 }
 
 
-/* ----------- section ----------- */
-
-section {
-    min-height: 80vh;
-
-    padding: 10rem 12% 10rem;
-    padding-top: calc(10rem + 80px); /* Ajuste com base na altura do seu header */
-}
-
-span {
-    color: var(--main-color);
-}
-
-.logo span {
-    color: var(--main-color);
-}
-
-.heading {
-    font-size: 8rem;
-    text-align: center;
-    margin: 5rem 0;
-}
+/* ====================================
+            Seções Específicas
+   ==================================== */
 
 /*------------- Player Radio --------------- */
-
 #radio-player {
     width: 80%;
-    max-width: 50%;
+    max-width: 60%;
     padding: 30px;
     background-color: var(--second-bg-color);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -372,7 +329,7 @@ audio::-webkit-media-controls-time-remaining-display {
     color: black; /* Cor dos controles */
 }
 
-.header-player {
+/* .header-player {
     background-color: #ffffff;
     padding: 5px 5px;
     border-radius: 5px;
@@ -397,170 +354,157 @@ audio::-webkit-media-controls-time-remaining-display {
 .banner img {
     max-width: 100%;
     height: auto;
-}
+} */
 
-/*------------- Colaborators Styles ------------- */
-section.collaborators {
-    background: var(--bg-color);
-}
-.collaborators img {
-    width: 10%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-
-/*------------- Footer Styles ------------- */
-
-.footer{
+/*------------- Carrossel de Colaborators ------------- */
+.team-carousel-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: var(--second-bg-color);
+    min-height: 80vh;
+    overflow: hidden;
     position: relative;
-    bottom: 0;
-    width: 100%;
-    padding: 40px 0;
-    background-color: var(--bg-color);
 }
-.footer .social{
-    text-align: center;
-    padding-bottom: 25px;
-    color: var(--main-color);
-}
-.footer .social a{
-    display: inline-block;
-    justify-content: center;
-    align-items: center;
-    width: 5rem;
-    height: 5rem;
-    font-size: 3rem;
-    border-radius: 50%;
-    color: var(--main-color);
-    line-height: 5rem;
-    margin: 0 1rem;
-    transition: 0.3s ease-in-out;
-}
-.footer .social a:hover{
-    color: white;
-    transform: scale(1.3);
-}
-.footer ul{
-    margin-top: 0;
-    padding: 0;
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 0;
-    text-align: center;
-}
-.footer ul li a{
-    color: white;
-    border-bottom: 3px solid transparent;
-    transition: 0.3s ease-in-out;
-}
-.footer ul li a:hover{
-    border-bottom: 3px solid var(--main-color);
-}
-.footer ul li{
-    display: inline-block;
-    padding: 0 15px;
-}
-.footer .copyright{
+
+.team-carousel-section h2 {
     margin-top: 50px;
-    text-align: center;
-    font-size: 16px;
+    margin-bottom: 10px;
     color: white;
+    font-size: 80px;
 }
 
-/*------------- Scroll bar -------------*/
-
-::-webkit-scrollbar{
-    width: 10px;
-}
-::-webkit-scrollbar-thumb{
-    background-color: var(--main-color);
-}
-::-webkit-scrollbar-track{
-    background-color: var(--bg-color);
+.carousel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 200px 0;
 }
 
-/*------------- Back to Top Button ------------- */
-
-.back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: rgba(255, 255, 255, 0); /* Transparente */
-    color: var(--main-color);
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    font-size: 50px;
-    text-decoration: none;
-    display: none; /* Inicialmente escondido */
-    transition: background-color 0.3s;
-    z-index: 999; /* Garante que o botão esteja acima de outros elementos */
-}
-
-.back-to-top:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Altera a opacidade ao passar o mouse */
-}
-
-/*------------- Page 404 Styles ------------- */
-
-.page-404 {
+.carousel-track {
     display: flex;
+    justify-content: center; 
     align-items: center;
-    justify-content: center;
-    gap: 15rem;
-    height: 100vh;
-    text-align: center;
+    position: relative;
+    height: 400px; 
+    transition: transform 0.5s ease-in-out;
+    transform-style: preserve-3d;
+    perspective: 700px;
 }
-.page-404-content {
+.carousel-track.no-transition {
+    transition: none !important; /* Desabilita a transição para saltos instantâneos */
+}
+
+.carousel-card {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 380px;
+    height: 550px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    margin-top: 3rem;
-}
-.page-404-content h3{
-    margin-bottom: 2rem;
-    margin-top: 1rem;
-    font-size: 3.5rem;
-}
-.page-404-content h1{
-    font-size: 10rem;
-    font-weight: 700;
-    margin-top: 1.5rem;
-    line-height: 1;
-}
-.page-404-content p{
-    font-size: 1.5rem;
-    font-weight: 500;
-    line-height: 1.8;
-    max-width: 1000px;
-}
-.page-404-content p:last-of-type {
-    margin-bottom: 3.5rem;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+    transform: translateX(0) scale(0.8) translateY(0) rotateY(0deg) translateZ(-200px);
+    z-index: 1;
 }
 
-/*------------- Programation Page ------------- */
+.carousel-card.no-transition {
+    transition: none !important;
+}
 
-.programming{
+.carousel-card.active {
+    opacity: 1;
+    transform: translateX(0) scale(1) translateY(0) rotateY(0deg) translateZ(0);
+    z-index: 10;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-card.active:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 0px 50px var(--main-color);
+}
+
+.carousel-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #eee;
+}
+
+.carousel-card h3 {
+    margin: 10px 0 5px;
+    color: #444;
+    font-size: 4em;
+}
+
+.carousel-card p {
+    color: #777;
+    font-size: 2.5em;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--main-color);
+    color: black;
+    padding: 15px 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 3rem;
+    z-index: 20;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-button:hover {
+    background-color: rgba(255, 49, 49, 0.4);
+    color: white;
+}
+
+.carousel-button.prev {
+    left: 50px;
+}
+
+.carousel-button.next {
+    right: 50px;
+}
+
+/* ---- Página de Programação ---- */
+.programming {
     background: var(--bg-color);
 }
-.programming-box{
+
+.programming-box {
+    background-color: var(--second-bg-color);
+    width: 100%;
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding-bottom: 200px;
 }
-.programming .heading{
+
+.programming .heading {
     margin-top: 10rem;
     margin-bottom: 7.5rem;
 }
 
-.programming-item{
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.programming-item {
     min-height: 650px;
     max-width: 450px;
     background: rgba(0, 0, 0, 0.7);
@@ -578,325 +522,425 @@ section.collaborators {
     color: white;
     transition: 0.4s ease-in-out;
 }
-.programming-item:hover{
+
+.programming-item:hover {
     border: 3px solid var(--main-color);
-    transform: translateY(-10px)scale(1.03);
+    transform: translateY(-10px) scale(1.03);
     box-shadow: 0 0 50px var(--main-color);
 }
-.programming-item h2{
-    font-size: 3rem; /* Ajustado o tamanho da fonte */
+
+.programming-item h2 {
+    font-size: 3rem;
     margin-bottom: 2rem;
 }
-.programming-item p{
-    font-size: 1.8rem; /* Ajustado o tamanho da fonte */
+
+.programming-item p {
+    font-size: 1.8rem;
     margin-bottom: 1rem;
 }
 
-.wrapper{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 3rem;
+/* ---- Página 404 ---- */
+.page-404 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15rem;
+    height: 100vh;
+    text-align: center;
+}
+
+.page-404-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.page-404-content h3 {
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+    font-size: 3.5rem;
+}
+
+.page-404-content h1 {
+    font-size: 10rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    line-height: 1;
+}
+
+.page-404-content p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.8;
+    max-width: 1000px;
+}
+
+.page-404-content p:last-of-type {
+    margin-bottom: 3.5rem;
 }
 
 
-/* ------------- Responsividade -------------*/
+/* ====================================
+                Footer
+   ==================================== */
+.footer{
+    width: 100%;
+    padding: 40px 0;
+    background-color: var(--bg-color);
+}
 
-/* ======== MEDIA QUERIES PARA RESPONSIVIDADE ======== */
+.footer .social{
+    text-align: center;
+    padding-bottom: 25px;
+}
 
-/* Para telas muito grandes (desktops maiores que 1600px) */
+.footer .social a{
+    display: inline-block;
+    width: 5rem;
+    height: 5rem;
+    font-size: 3rem;
+    border-radius: 50%;
+    color: var(--main-color);
+    line-height: 5rem;
+    margin: 0 1rem;
+    transition: 0.3s ease-in-out;
+}
+
+.footer .social a:hover{
+    color: white;
+    transform: scale(1.3);
+}
+
+.footer ul{
+    margin-top: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-align: center;
+}
+.footer ul li{
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.footer ul li a{
+    color: white;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s ease-in-out;
+}
+
+.footer ul li a:hover{
+    border-bottom: 3px solid var(--main-color);
+}
+
+.footer .copyright{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 16px;
+    color: white;
+}
+
+
+/* ====================================
+               Utilitários
+   ==================================== */
+
+/* ---- Barra de Rolagem ---- */
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--main-color);
+}
+::-webkit-scrollbar-track{
+    background-color: var(--bg-color);
+}
+
+/* ---- Botão "Voltar ao Topo" ---- */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: rgba(255, 255, 255, 0);
+    color: var(--main-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 50px;
+    display: none;
+    transition: background-color 0.3s;
+    z-index: 999;
+}
+
+.back-to-top:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* ====================================
+             Responsividade
+   ==================================== */
+
+/* ---- Para Telas Muito Grandes (<- 1600px) ---- */
 @media (max-width: 1600px) {
     html {
-        font-size: 55%; /* Reduz a fonte base para elementos maiores */
+        font-size: 55%;
     }
-    .top-bar {
-        padding: 1rem 10%;
-    }
-    .navbar {
-        padding: 1rem 10%;
+    .top-bar .navbar {
+        padding-left: 10%;
+        padding-right: 10%;
     }
     section {
-        min-width: 40vh;
-        padding: 10rem 10% 10rem;
+        padding-left: 10%;
+        padding-right: 10%;
     }
 }
 
-/* Para desktops (largura máxima de 1200px) */
+/* ---- Para Desktops (<- 1200px) ---- */
 @media (max-width: 1200px) {
     html {
-        font-size: 50%; /* Reduz ainda mais a fonte base */
+        font-size: 45%;
     }
-    .top-bar {
-        padding: 1rem 8%;
-    }
-    .navbar {
-        padding: 1rem 8%;
+    .top-bar .navbar {
+        padding-left: 8%;
+        padding-right: 8%;
     }
     section {
-        min-width: 40vh;
-        padding: 10rem 8% 10rem;
+        padding-left: 8%;
+        padding-right: 8%;
     }
     .header .social {
-        gap: 1.5rem; /* Ajusta o espaçamento dos ícones sociais */
+        gap: 1.5rem;
     }
     .banner {
-        width: 380px; /* Reduz a largura do banner */
-        height: 50px; /* Reduz a altura do banner */
-        margin: 0 10px; /* Ajusta a margem do banner */
+        width: 380px;
+        height: 50px;
+        margin: 0 10px;
     }
     .navbar ul a {
-        padding: 0 10px; /* Reduz o padding dos itens da navbar */
-        font-size: 1.6rem; /* Ajusta o tamanho da fonte da navbar */
+        padding: 0 10px;
+        font-size: 1.6rem;
     }
     .programming-item {
-        min-height: 550px; /* Ajusta a altura mínima dos itens de programação */
-        max-width: 380px; /* Ajusta a largura máxima dos itens de programação */
-        padding: 20px 40px; /* Ajusta o padding dos itens de programação */
+        min-height: 550px;
+        max-width: 380px;
+        padding: 20px 40px;
     }
 }
 
-/* Para tablets (largura máxima de 991px) */
+/* ---- Para Tablets (<- 991px) ---- */
 @media (max-width: 991px) {
     .header {
-        padding: 0; /* Remove o padding do header */
+        padding: 0;
     }
     .top-bar {
-        padding: 3rem 5%; /* Ajusta o padding da top-bar */
-        flex-direction: row; /* Coloca os itens em coluna */
-        justify-content: center; /* Centraliza os itens verticalmente */
-        align-items: center; /* Centraliza os itens horizontalmente */ 
-        flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
-        position: relative; /* Permite que a navbar seja posicionada abaixo do header */
-        z-index: 1000; /* Garante que a top-bar fique acima de outros*/
-    }
-    .navbar {
-        padding: 0; /* Remove o padding da navbar (será controlado pela classe active) */
-    }
-    section {
-        min-width: 70vh; 
-        padding: 7rem 5% 7rem; /* Ajusta o padding das seções */
+        padding: 1.5rem 5%; /*modifiquei aqui*/
+        flex-wrap: nowrap;
+        position: relative;
     }
     .banner {
-        display: none; /* Oculta o banner em telas menores para otimizar espaço */
-    }
-    .header .social {
-        display: flex; /* Garante que os ícones sociais sejam exibidos */
-        order: -1; /* Move os ícones sociais para o início da top-bar */
-        margin-right: auto; /* Alinha os ícones sociais à esquerda */
-        justify-content: flex-start; /* Alinha os ícones sociais à esquerda */
-        width: auto; /* Ocupa a largura total */
-        gap: 1rem; /* Ajusta o espaçamento dos ícones sociais */
-        padding-left: 0; /* Remove o padding à esquerda */
+        display: none;
     }
     .logo {
-        margin: 0 auto; /* Centraliza o logo */
-        z-index: 1002; /* Garante que o logo fique acima da navbar */
-        position: relative ; /* Permite que o logo seja posicionado corretamente */
+        margin: 0 auto;
+        z-index: 1002;
+        position: relative;
     }
-    /* Navbar para Mobile (Menu Hambúrguer) */
+    .header .social {
+        display: flex;
+        width: auto;
+        gap: 1rem;
+        padding-left: 0;
+    }
     #menu-icon {
-        display: block; /* Mostra o ícone do menu hambúrguer */
-        position: absolute;
-        right: 5%;
-        top: 50%;
-        transform: translateY(-50%);
+        display: block;
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: none; /* Remove a transformação */
         z-index: 1001;
-        background-color: transparent; /* Garante que não tenha fundo */
-        border: none; /* Remove qualquer borda padrão de botão */
+        background-color: var(--main-color);
         font-size: 3.6rem;
-        color: var(--main-color);
+        color: var(--bg-color);
     }
-
     .navbar {
         position: absolute;
-        top: 100%; /* Posiciona abaixo do header */
+        top: 100%;
         left: 0;
         width: 100%;
-        background: var(--main-color); /* Fundo da navbar mobile */
+        background: var(--main-color);
         padding: 1rem 5%;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        display: none; /* Escondido por padrão, será mostrado com JS */
-        flex-direction: column; /* Itens em coluna */
-        transition: all 0.3s ease;
-        z-index: 999; /* Garante que fique abaixo do menu-icon */
+        display: none;
+        flex-direction: column;
+        z-index: 999;
     }
-
     .navbar.active {
-        display: flex; /* Mostra a navbar quando a classe 'active' é adicionada */
+        display: flex;
+    }
+    .navbar nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+    .navbar nav ul a {
+        display: block;
+        padding: 2rem;
+        font-size: 2.5rem;
+        border-right: none;
+        border-bottom: 1px solid var(--bg-color);
+        white-space: normal;
+    }
+    .navbar nav ul a:first-of-type {
+        border-top: 1px solid var(--bg-color);
     }
 
-    .navbar ul {
-        flex-direction: column; /* Itens da lista em coluna */
-        text-align: center; /* Centraliza o texto */
-    }
-
-    .navbar ul a {
-        display: block; /* Cada link ocupa a largura total */
-        margin: 1rem 0; /* Espaçamento entre os links */
-        padding: 1rem; /* Padding para melhor área de clique */
-        font-size: 2rem; /* Tamanho da fonte maior para mobile */
-        border-right: none; /* Remove a borda lateral */
-        border-bottom: 1px solid var(--bg-color); /* Adiciona uma borda inferior */
-        white-space: normal; /* Permite que o texto do link quebre linha */
-    }
-
-    .navbar ul a:last-child {
-        border-bottom: none; /* Remove a borda do último item */
+    .navbar nav ul a:last-child {
+        border-bottom: none;
     }
 
     /* Ajustes para os menus dropdown em mobile */
-    .app-menu {
-        display: flex; /* Use flexbox */
-        flex-direction: column; /* Empilha o botão e o dropdown */
-        width: 100%;
-        margin: 1rem 0;
-        text-align: center;
-        align-items: center; /* Centraliza o botão e o dropdown */
-    }
-
     .menu-button {
-        width: 100%; /* Botão ocupa largura total */
-        height: auto; /* Altura automática */
-        padding: 1rem; /* Padding maior */
-        font-size: 2rem;
+        width: 100%;
+        font-size: 2.5rem;
+        padding-bottom: 2rem 0;
     }
-
+    .app-menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        align-items: center;
+        padding: 3rem 0;
+        margin-top: 5px;
+    }
+    .app-menu .menu-button,
     .contato .menu-button {
+        padding: .2rem 0 3.2rem;
         border-right: none;
+        border-bottom: 1px solid var(--bg-color);
     }
-
     .dropdown {
-        display: none; /* Começa escondido, JS o mostra */
-        position: static; /* <<--- ISSO FAZ ELE EMPURRAR OS OUTROS ELEMENTOS! */
-        width: 100%; /* Largura total */
-        min-width: unset; /* Remove min-width */
-        top: unset; /* Remove top fixo */
-        left: unset; /* Remove left fixo */
-        background-color: #f8f8f8; /* Cor de fundo mais clara para os itens */
-        box-shadow: none; /* Remove sombra */
+        position: static;
+        width: 100%;
+        box-shadow: none;
         padding: 0;
-        margin-top: 5px; /* Pequeno espaçamento superior */
+        margin-top: 2px;
+        background-color: var(--text-color);
     }
-
-    .dropdown a {
-        color: var(--bg-color); /* Cor do texto dos itens do dropdown */
-        padding: 1rem 20px; /* Padding para os itens do dropdown */
-        font-size: 1.8rem;
+    .app-menu .dropdown a,
+    .contato .dropdown a {
+        color: var(--bg-color);
+        display: block;
+        padding: 2rem 20px;
+        font-size: 2rem;
+        transition: background-color 0.3s;
     }
-
-    .dropdown a:hover {
-        background-color: var(--main-color); /* Cor de hover para itens do dropdown */
-        color: white; /* Cor do texto de hover */
+    .app-menu .dropdown a:hover,
+    .contato .dropdown a:hover {
+        background-color: rgba(0, 0, 0, 0.15);
+        color: var(--bg-color);
     }
-
     .search-box {
-        top: 60px; /* Ajusta a posição do search-box */
-        right: 5%; /* Alinha à direita */
-        width: 90%; /* Largura maior para mobile */
+        top: 60px;
+        right: 5%;
+        width: 90%;
+        z-index: 1005;
     }
-
-    .search-box input {
-        padding: 10px; /* Ajusta o padding do input de busca */
-        font-size: 1.4rem;
-    }
-
-    .search-box button {
-        padding: 10px 0; /* Ajusta o padding do botão de busca */
-        font-size: 1.4rem;
-        width: 100%; /* Ocupa a largura total */
-    }
-
-    .heading {
-        font-size: 6rem; /* Reduz o tamanho do título principal */
-        margin: 3rem 0;
-    }
-
     .wrapper {
-        grid-template-columns: repeat(2,1fr); /* 2 colunas para programação em tablet */
+        grid-template-columns: repeat(2, 1fr);
     }
-
+    .programming {
+        padding: 20rem 5% 5rem;
+    }
+    .programming .heading{
+        font-size: 6rem;
+        margin-top: 5rem;
+    }
     .programming-item {
         min-height: 450px;
-        max-width: unset; /* Permite que ocupe a largura disponível da coluna */
+        max-width: unset;
         margin: 1rem;
         padding: 20px 30px;
     }
 }
 
-/* Para Mobile (largura máxima de 768px) */
+/* ---- Para Mobile (<- 768px) ---- */
 @media (max-width: 768px) {
     html {
-        font-size: 45%; /* Reduz a fonte base para mobile */
+        font-size: 40%;
     }
     .top-bar {
         padding: 1rem 3%;
     }
     section {
-        min-width: 40vh;
         padding: 5rem 3% 5rem;
     }
-
     .logo {
-        max-width: 120px; /* Reduz o tamanho do logo */
+        max-width: 120px;
     }
-
     .heading {
-        font-size: 5rem; /* Reduz o tamanho do título principal */
+        font-size: 5rem;
     }
-
     #radio-player {
-        width: 90%; /* Aumenta a largura do player de rádio */
+        width: 90%;
         max-width: unset;
         padding: 20px;
         margin: 120px auto 50px;
     }
-
-    #radio-player h2 {
+    #radio-player h2, 
+    .team-carousel-section h2 {
+        font-size: 6rem;
         padding-bottom: 20px;
-        font-size: 2.5rem;
     }
-
-    audio {
+    #radio-player audio {
         width: 100%;
     }
-
-    .header-player audio {
-        width: 100%; /* Ajusta o player do header para 100% de largura */
-    }
-
     .wrapper {
-        grid-template-columns: 1fr; /* Apenas 1 coluna para programação em mobile */
+        grid-template-columns: 1fr;
     }
-
     .programming-item {
         min-height: 400px;
-        max-width: 90%; /* Ajusta a largura máxima para mobile */
-        margin: 1rem auto; /* Centraliza os itens */
+        max-width: 90%;
+        margin: 1rem auto;
         padding: 20px;
-        text-align: center; /* Centraliza o texto */
-        align-items: center; /* Centraliza os itens */
-        justify-content: center; /* Centraliza verticalmente */
+        text-align: center;
+        align-items: center;
+        justify-content: center;
     }
     .programming-item h2 {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
     }
     .programming-item p {
-        font-size: 1.6rem;
+        font-size: 2.5rem;
     }
-
+    .carousel-card {
+        width: 250px;
+        height: 320px;
+    }
+    .carousel-card img {
+        width: 100px;
+        height: 100px;
+    }
+    .carousel-button {
+        padding: 8px 12px;
+        font-size: 1em;
+    }
     .footer ul li {
-        padding: 0 8px; /* Reduz o padding dos itens do footer */
-        font-size: 1.6rem;
+        padding: 0 8px;
+        font-size: 2.5rem;
     }
     .footer .social a {
-        width: 4rem; /* Reduz o tamanho dos ícones sociais do footer */
+        width: 4rem;
         height: 4rem;
-        font-size: 2.5rem;
+        font-size: 4rem;
         line-height: 4rem;
-        margin: 0 0.5rem;
+        margin: 0 2rem;
     }
-
     .page-404 {
-        flex-direction: column; /* Coloca os elementos da página 404 em coluna */
+        flex-direction: column;
         gap: 5rem;
         padding: 5rem 3%;
     }
@@ -911,27 +955,43 @@ section.collaborators {
     }
 }
 
-/* Para Mobile muito pequeno (largura máxima de 450px) */
+/* ---- Para Mobile Pequeno (<= 450px) ---- */
 @media (max-width: 450px) {
     html {
-        font-size: 40%; /* Reduz ainda mais a fonte base */
+        font-size: 40%;
     }
     .top-bar {
         padding: 1rem 2%;
     }
     section {
-        min-width: 40vh;
         padding: 4rem 2% 4rem;
     }
     .search-box {
-        right: 2%; /* Ajusta a posição do search-box */
+        right: 2%;
     }
     .search-box button {
-        padding: 8px 0; /* Ajusta o padding do botão de busca */
+        padding: 8px 0;
     }
-
+    .carousel-card{
+        width: 220px;
+        height: 300px;
+        padding: 15px;
+    }
+    .carousel-card h3 {
+        font-size: 3rem;
+    }
+    .carousel-card p {
+        font-size: 1.9rem;
+    }
+    .carousel-button {
+        padding: 10px 5px;
+        font-size: 0.9rem;
+    }
+    .carousel-track {
+        height: 30px;
+    }
     .footer ul li {
-        display: block; /* Cada item do footer em uma nova linha */
+        display: block;
         padding: 5px 0;
     }
 }
